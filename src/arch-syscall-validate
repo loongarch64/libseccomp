@@ -331,8 +331,10 @@ function dump_sys_loongarch64() {
 	sed_filter+='s/__NR3264_truncate/45/;'
 
 	gcc -E -dM -I$1/include/uapi \
-		-D__BITS_PER_LONG=64 -D__ARCH_WANT_RENAMEAT \
+		-D__BITS_PER_LONG=64 \
 		-D__ARCH_WANT_NEW_STAT \
+		-D__ARCH_WANT_SYS_CLONE \
+		-D__ARCH_WANT_SYS_CLONE3 \
 		$1/arch/loongarch/include/uapi/asm/unistd.h | \
 		grep "^#define __NR_" | \
 		sed '/__NR_syscalls/d' | \
@@ -638,6 +640,9 @@ function dump_sys() {
 	aarch64)
 		dump_sys_aarch64 "$2"
 		;;
+	loongarch64)
+		dump_sys_loongarch64 "$2"
+		;;
 	mips)
 		dump_sys_mips "$2"
 		;;
@@ -702,6 +707,9 @@ function dump_lib() {
 	aarch64)
 		dump_lib_aarch64
 		;;
+	loongarch64)
+		dump_lib_loongarch64
+		;;
 	mips)
 		dump_lib_mips
 		;;
@@ -762,6 +770,7 @@ function gen_csv() {
 	abi_list=""
 	abi_list+=" x86 x86_64 x32"
 	abi_list+=" arm aarch64"
+	abi_list+=" loongarch64"
 	abi_list+=" mips mips64 mips64n32"
 	abi_list+=" parisc parisc64"
 	abi_list+=" ppc ppc64"
@@ -851,6 +860,7 @@ if [[ $opt_arches == "" ]]; then
 	opt_arches=" \
 		x86 x86_64 x32 \
 		arm aarch64 \
+		loongarch64 \
 		mips mips64 mips64n32 \
 		parisc parisc64 \
 		ppc ppc64 \
