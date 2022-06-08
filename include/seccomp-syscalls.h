@@ -276,6 +276,7 @@
 #define __PNR_renameat				-10242
 #define __PNR_riscv_flush_icache		-10243
 #define __PNR_memfd_secret			-10244
+#define __PNR_fstat				-10245
 
 /*
  * libseccomp syscall definitions
@@ -722,6 +723,8 @@
 #else
 #define __SNR_futex_time64		__PNR_futex_time64
 #endif
+
+#define __SNR_futex_waitv		__NR_futex_waitv
 
 #ifdef __NR_futimesat
 #define __SNR_futimesat			__NR_futimesat
@@ -1722,6 +1725,8 @@
 #else
 #define __SNR_set_mempolicy		__PNR_set_mempolicy
 #endif
+
+#define __SNR_set_mempolicy_home_node	__NR_set_mempolicy_home_node
 
 #define __SNR_set_robust_list		__NR_set_robust_list
 
