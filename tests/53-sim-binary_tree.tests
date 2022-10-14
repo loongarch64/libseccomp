@@ -17,7 +17,7 @@ test type: bpf-sim
 53-sim-binary_tree	+x86_64,+ppc64le,+aarch64,+loongarch64	close		100	101	N	N	N	N	ERRNO(3)
 53-sim-binary_tree	+x86_64,+ppc64le		stat		N	N	N	N	N	N	ERRNO(4)
 53-sim-binary_tree	+aarch64,+loongarch64			stat		N	N	N	N	N	N	ALLOW
-53-sim-binary_tree	+x86_64,+ppc64le,+aarch64,+loongarch64	fstat		N	N	N	N	N	N	ERRNO(5)
+53-sim-binary_tree	+x86_64,+ppc64le,+aarch64	fstat		N	N	N	N	N	N	ERRNO(5)
 53-sim-binary_tree	+x86_64,+ppc64le		lstat		N	N	N	N	N	N	ERRNO(6)
 53-sim-binary_tree	+aarch64,+loongarch64			lstat		N	N	N	N	N	N	ALLOW
 53-sim-binary_tree	+x86_64,+ppc64le		poll		102	N	N	N	N	N	ERRNO(7)
