@@ -332,7 +332,6 @@ function dump_sys_loongarch64() {
 
 	gcc -E -dM -I$1/include/uapi \
 		-D__BITS_PER_LONG=64 \
-		-D__ARCH_WANT_NEW_STAT \
 		-D__ARCH_WANT_SYS_CLONE \
 		-D__ARCH_WANT_SYS_CLONE3 \
 		$1/arch/loongarch/include/uapi/asm/unistd.h | \
